@@ -30,10 +30,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  scale_core:
+    hosted: https://onepub.dev/api/ynnonoflyg
+    version: ^1.0.0+1
+  feature_1:
+    hosted: https://onepub.dev/api/ynnonoflyg
+    version: ^1.0.0+1
+  feature_2:
+    hosted: https://onepub.dev/api/ynnonoflyg
+    version: ^1.0.0+1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
+
+# aimirimsoftware_db_user
+# ILg0u8fyOJKSbkxH
 
 dev_dependencies:
   flutter_test:
