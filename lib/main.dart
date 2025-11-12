@@ -51,8 +51,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton:
-          IncrementCounterWidget(), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: IncrementCounterWidget(),
     );
   }
 }
