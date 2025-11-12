@@ -1,30 +1,60 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:feature_1/increment/increment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:scale_core/core.dart';
 
-import 'package:feature_1/main.dart';
+class TestWidget extends StatelessWidget {
+  const TestWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: OnCounterChangeWidget(
+        builder: (_, count) => Center(child: Text('$count')),
+      ),
+      floatingActionButton: IncrementCounterWidget(),
+    );
+  }
+}
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('On render display initial state which is 0',
+      (WidgetTester tester) async {
+    await pumpApp(tester);
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
+  });
+  testWidgets('After tapping floating button increments state to 1',
+      (WidgetTester tester) async {
+    await pumpApp(tester);
 
-    // Tap the '+' icon and trigger a frame.
     await tester.tap(find.byIcon(Icons.add));
-    await tester.pump(Duration(milliseconds: 100));
+    await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
+    // Verify that our counter starts at 0.
     expect(find.text('1'), findsOneWidget);
   });
+  testWidgets('After tapping twice floating button increments state to 2',
+      (WidgetTester tester) async {
+    await pumpApp(tester);
+
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    // Verify that our counter starts at 0.
+    expect(find.text('2'), findsOneWidget);
+  });
+}
+
+Future<void> pumpApp(WidgetTester tester) async {
+  await tester.pumpWidget(MaterialApp(
+    home: ModuleSetup(
+      featureModules: [IncrementModule()],
+      child: TestWidget(),
+    ),
+  ));
 }
