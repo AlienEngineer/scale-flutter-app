@@ -61,7 +61,7 @@ void main() {
   });
   testWidgets('After tapping twice floating button increments state to 2',
       (WidgetTester tester) async {
-    await pumpApp(tester);
+    await pumpAppWithCluster(tester);
 
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
@@ -80,4 +80,20 @@ Future<void> pumpApp(WidgetTester tester) async {
       child: TestWidget(),
     ),
   ));
+}
+
+Future<void> pumpAppWithCluster(WidgetTester tester) async {
+  await tester.pumpWidget(MaterialApp(
+    home: ModuleSetup(
+      featureClusters: [TestCluster()],
+      child: TestWidget(),
+    ),
+  ));
+}
+
+class TestCluster implements FeatureCluster {
+  @override
+  void setup(ModuleRegistry registry) {
+    registry.addModule((_) => TestFeatureModule());
+  }
 }

@@ -4,10 +4,15 @@ import 'package:provider/provider.dart';
 import 'package:scale_core/core.dart';
 
 class ModuleSetup extends StatelessWidget {
-  final List<FeatureModule> featureModules;
+  final List<FeatureModule>? featureModules;
+  final List<FeatureCluster>? featureClusters;
   final Widget child;
-  const ModuleSetup(
-      {super.key, required this.featureModules, required this.child});
+  const ModuleSetup({
+    super.key,
+    this.featureModules,
+    this.featureClusters,
+    required this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +28,19 @@ class ModuleSetup extends StatelessWidget {
 
   FeatureModulesRegistry _setupRegistry() {
     final registry = FeatureModulesRegistry();
-    for (var value in featureModules) {
-      value.setup(registry);
+
+    if (featureModules != null) {
+      for (var value in featureModules!) {
+        value.setup(registry);
+      }
     }
+
+    if (featureClusters != null) {
+      for (var cluster in featureClusters!) {
+        cluster.setup(registry);
+      }
+    }
+
     return registry;
   }
 }

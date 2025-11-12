@@ -1,6 +1,7 @@
 import 'package:feature_1/feature_1.dart';
 import 'package:flutter/material.dart';
 import 'package:scale_core/core.dart';
+import 'package:scale_flutter_app/app_cluster.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: ModuleSetup(
-          featureModules: [IncrementModule()],
-          child: const MyHomePage(title: 'Flutter Demo Home Page')),
+        featureClusters: [AppCluster()],
+        child: const MyHomePage(title: 'Flutter Demo Home Page'),
+      ),
     );
   }
 }
