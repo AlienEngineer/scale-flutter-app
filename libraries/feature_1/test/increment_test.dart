@@ -1,3 +1,4 @@
+import 'package:feature_1/feature_1.dart';
 import 'package:feature_1/increment/increment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,8 +10,13 @@ class TestWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: OnCounterChangeWidget(
-        builder: (_, count) => Center(child: Text('$count')),
+      body: Column(
+        children: [
+          GarageWidget(),
+          OnCounterChangeWidget(
+            builder: (_, count) => Center(child: Text('$count')),
+          ),
+        ],
       ),
       floatingActionButton: IncrementCounterWidget(),
     );
@@ -48,13 +54,23 @@ void main() {
     // Verify that our counter starts at 0.
     expect(find.text('2'), findsOneWidget);
   });
+
+  testWidgets('rendering displays the list of vehicles', (tester) async {
+    await pumpApp(tester);
+
+    expect(find.byType(Text), findsNWidgets(5));
+  });
 }
 
 Future<void> pumpApp(WidgetTester tester) async {
   await tester.pumpWidget(MaterialApp(
     home: ModuleSetup(
-      featureModules: [IncrementModule()],
+      featureModules: [
+        IncrementModule(),
+        GarageModule(),
+      ],
       child: TestWidget(),
     ),
   ));
+  await tester.pump(Duration(seconds: 10));
 }

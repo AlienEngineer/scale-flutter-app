@@ -1,15 +1,25 @@
 import 'package:scale_core/core.dart';
 
 class GarageLoader extends StateManager<List<Vehicle>> {
-  GarageLoader() : super([]);
+  GarageLoader() : super([]) {
+    load();
+  }
 
   void load() {
-    Future.delayed(Duration(seconds: 2)).then(
+    Future.delayed(Duration(seconds: 0)).then(
       (_) => pushNewState((_) => [
-            Vehicle(vin: '1', brand: 'some brand'),
-            Vehicle(vin: '2', brand: 'some brand'),
-            Vehicle(vin: '3', brand: 'some brand'),
-            Vehicle(vin: '4', brand: 'some brand')
+            Vehicle(vin: 'V9', brand: 'some brand'),
+            Vehicle(vin: 'V8', brand: 'some brand'),
+            Vehicle(vin: 'V7', brand: 'some brand'),
+            Vehicle(vin: 'V6', brand: 'some brand')
+          ]),
+    );
+    Future.delayed(Duration(seconds: 5)).then(
+      (_) => pushNewState((_) => [
+            Vehicle(vin: 'VX59', brand: 'some brand'),
+            Vehicle(vin: 'VX58', brand: 'some brand'),
+            Vehicle(vin: 'VX57', brand: 'some brand'),
+            Vehicle(vin: 'VX56', brand: 'some brand')
           ]),
     );
   }

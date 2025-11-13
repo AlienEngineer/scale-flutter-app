@@ -18,6 +18,11 @@ class AppCluster implements FeatureCluster {
         service.get<DataConsumer<List<Capability>>>(),
       ),
     );
+    registry.addModule(
+      (service) => VehicleBrandModule(
+        onBrandChange: service.get<DataConsumer<Brand>>(),
+      ),
+    );
   }
 }
 

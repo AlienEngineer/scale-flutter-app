@@ -1,4 +1,5 @@
 import 'package:feature_1/feature_1.dart';
+import 'package:feature_2/feature_2.dart';
 import 'package:flutter/material.dart';
 import 'package:scale_core/core.dart';
 import 'package:scale_flutter_app/app_cluster.dart';
@@ -14,44 +15,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: ModuleSetup(
-        featureClusters: [AppCluster()],
-        child: const MyHomePage(title: 'Flutter Demo Home Page'),
+        featureModules: [
+          IncrementModule(),
+          GarageModule(),
+        ],
+        child: MyHomePage(),
       ),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            OnCounterChangeWidget(builder: (context, value) {
-              return Text(
-                '$value',
-                style: Theme.of(context).textTheme.headlineMedium,
-              );
-            }),
-          ],
-        ),
+      body: Column(
+        children: [
+          GarageWidget(),
+          OnCounterChangeWidget(
+            builder: (_, count) => Center(child: Text('$count')),
+          ),
+        ],
       ),
       floatingActionButton: IncrementCounterWidget(),
     );
