@@ -25,7 +25,8 @@ class TestWidget extends StatelessWidget {
         builder: (context, count) => Center(child: Text('$count')),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.getManager<TestStateManager>().increment(),
+        onPressed: () =>
+            context.getStateManager<TestStateManager>().increment(),
         child: const Icon(Icons.add),
       ),
     );

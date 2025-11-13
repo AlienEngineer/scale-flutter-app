@@ -3,5 +3,5 @@ import 'package:provider/provider.dart';
 import 'package:scale_core/core.dart';
 
 extension BuildContextExtensions on BuildContext {
-  T getManager<T>() => read<StateManagerRegistry>().getManager<T>();
+  T getStateManager<T>() => read<StateManagerRegistry>().getManager<T>();
 }

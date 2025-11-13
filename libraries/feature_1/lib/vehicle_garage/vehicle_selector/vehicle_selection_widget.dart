@@ -17,7 +17,7 @@ class VehicleSelectionWidget extends StatelessWidget {
     return InkWell(
       child: child,
       onTap: () => onTap(
-        context.getManager<VehicleSelected>().selectVehicle,
+        context.getStateManager<VehicleSelectionStateManager>().select,
       ),
     );
   }

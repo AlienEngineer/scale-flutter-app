@@ -34,6 +34,16 @@ class FeatureModulesRegistry implements Registry, ModuleRegistry {
   @override
   void addModule(LazyRecord<FeatureModule> moduleBuilder) =>
       moduleBuilder(this).setup(this);
+
+  @override
+  void addDataBinder<T1, T2>(DataBinder<T1, T2> Function() binder) {
+    addSingletonLazy<DataProducer<T1>>(
+      (_) => binder(),
+    );
+    addSingletonLazy<DataConsumer<T2>>(
+      (service) => service.get<DataProducer<T1>>() as DataBinder<T1, T2>,
+    );
+  }
 }
 
 abstract class FeatureModule {

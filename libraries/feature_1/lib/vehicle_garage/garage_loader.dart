@@ -18,9 +18,17 @@ class GarageLoader extends StateManager<List<Vehicle>> {
 class Vehicle {
   final String vin;
   final String brand;
+  final List<Capability> capabilities;
+  // All the vehicle info
 
   Vehicle({
     required this.vin,
     required this.brand,
+    this.capabilities = const [],
   });
+}
+
+class Capability {
+  final String name;
+  Capability({required this.name});
 }

@@ -10,6 +10,7 @@ typedef LazyRecord<T> = T Function(ServiceCollection service);
 abstract class PublicRegistry {
   void addGlobalStateManager<T extends StateManager>(T obj);
   void addSingletonLazy<T>(LazyRecord<T> callback);
+  void addDataBinder<T1, T2>(DataBinder<T1, T2> Function() binder);
 }
 
 abstract class ServiceCollection {
