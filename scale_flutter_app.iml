@@ -291,6 +291,9 @@
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_1/windows/flutter/ephemeral/.plugin_symlinks/wakelock_plus/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_1/windows/flutter/ephemeral/.plugin_symlinks/wakelock_plus/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_1/windows/flutter/ephemeral/.plugin_symlinks/wakelock_plus/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/libraries/feature_1_sandbox/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/libraries/feature_1_sandbox/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/libraries/feature_1_sandbox/build" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_2/linux/flutter/ephemeral/.plugin_symlinks/app_links_linux/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_2/linux/flutter/ephemeral/.plugin_symlinks/app_links_linux/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_2/linux/flutter/ephemeral/.plugin_symlinks/app_links_linux/build" />
@@ -567,6 +570,9 @@
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_2/windows/flutter/ephemeral/.plugin_symlinks/wakelock_plus/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_2/windows/flutter/ephemeral/.plugin_symlinks/wakelock_plus/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/libraries/feature_2/windows/flutter/ephemeral/.plugin_symlinks/wakelock_plus/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/libraries/scale_core/.fvm/versions/3.27.4/packages/flutter_tools/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/libraries/scale_core/.fvm/versions/3.27.4/packages/flutter_tools/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/libraries/scale_core/.fvm/versions/3.27.4/packages/flutter_tools/build" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

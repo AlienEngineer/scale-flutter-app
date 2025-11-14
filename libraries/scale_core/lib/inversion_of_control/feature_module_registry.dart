@@ -6,6 +6,29 @@ class FeatureModulesRegistry implements Registry, ModuleRegistry {
   final Map<Type, Object> _resolvedServices = {};
   final List<SingleChildWidget> _providers = [];
 
+  final List<FeatureModule>? featureModules;
+  final List<FeatureCluster>? featureClusters;
+  FeatureModulesRegistry({
+    this.featureModules,
+    this.featureClusters,
+  }) {
+    _setupRegistry();
+  }
+
+  void _setupRegistry() {
+    if (featureModules != null) {
+      for (var value in featureModules!) {
+        value.setup(this);
+      }
+    }
+
+    if (featureClusters != null) {
+      for (var cluster in featureClusters!) {
+        cluster.setup(this);
+      }
+    }
+  }
+
   @override
   List<SingleChildWidget> getProviders() => _providers;
 

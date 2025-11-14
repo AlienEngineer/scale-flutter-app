@@ -1,5 +1,4 @@
 import 'package:feature_1/feature_1.dart';
-import 'package:feature_1/increment/increment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:scale_core/core.dart';
@@ -65,10 +64,12 @@ void main() {
 Future<void> pumpApp(WidgetTester tester) async {
   await tester.pumpWidget(MaterialApp(
     home: ModuleSetup(
-      featureModules: [
-        IncrementModule(),
-        GarageModule(),
-      ],
+      registry: FeatureModulesRegistry(
+        featureModules: [
+          IncrementModule(),
+          GarageModule(),
+        ],
+      ),
       child: TestWidget(),
     ),
   ));

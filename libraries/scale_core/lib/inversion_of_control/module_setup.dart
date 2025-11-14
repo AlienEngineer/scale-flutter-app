@@ -4,19 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:scale_core/core.dart';
 
 class ModuleSetup extends StatelessWidget {
-  final List<FeatureModule>? featureModules;
-  final List<FeatureCluster>? featureClusters;
+  final FeatureModulesRegistry registry;
   final Widget child;
+
   const ModuleSetup({
     super.key,
-    this.featureModules,
-    this.featureClusters,
+    required this.registry,
     required this.child,
   });
 
   @override
   Widget build(BuildContext context) {
-    final registry = _setupRegistry();
     return Provider<StateManagerRegistry>(
       create: (context) => StateManagerRegistry(registry),
       child: MultiBlocProvider(
@@ -24,24 +22,6 @@ class ModuleSetup extends StatelessWidget {
         child: child,
       ),
     );
-  }
-
-  FeatureModulesRegistry _setupRegistry() {
-    final registry = FeatureModulesRegistry();
-
-    if (featureModules != null) {
-      for (var value in featureModules!) {
-        value.setup(registry);
-      }
-    }
-
-    if (featureClusters != null) {
-      for (var cluster in featureClusters!) {
-        cluster.setup(registry);
-      }
-    }
-
-    return registry;
   }
 }
 

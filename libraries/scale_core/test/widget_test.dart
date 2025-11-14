@@ -77,7 +77,9 @@ void main() {
 Future<void> pumpApp(WidgetTester tester) async {
   await tester.pumpWidget(MaterialApp(
     home: ModuleSetup(
-      featureModules: [TestFeatureModule()],
+      registry: FeatureModulesRegistry(
+        featureModules: [TestFeatureModule()],
+      ),
       child: TestWidget(),
     ),
   ));
@@ -86,7 +88,9 @@ Future<void> pumpApp(WidgetTester tester) async {
 Future<void> pumpAppWithCluster(WidgetTester tester) async {
   await tester.pumpWidget(MaterialApp(
     home: ModuleSetup(
-      featureClusters: [TestCluster()],
+      registry: FeatureModulesRegistry(
+        featureClusters: [TestCluster()],
+      ),
       child: TestWidget(),
     ),
   ));
