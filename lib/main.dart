@@ -1,16 +1,12 @@
 import 'package:feature_1/feature_1.dart';
 import 'package:feature_2/feature_2.dart';
 import 'package:flutter/material.dart';
-import 'package:scale_core/core.dart';
-import 'package:scale_flutter_app/app_cluster.dart';
+import 'package:scale_framework/scale_framework.dart';
+
+import 'app_cluster.dart';
 
 void main() {
-  var registry = FeatureModulesRegistry(
-    featureModules: [
-      IncrementModule(),
-      GarageModule(),
-    ],
-  );
+  var registry = FeatureModulesRegistry(featureClusters: [AppCluster()]);
   runApp(MyApp(registry));
 }
 
@@ -38,7 +34,13 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          Text('Feature Garage:'),
           GarageWidget(),
+          Text('Feature Brand:'),
+          VehicleBrandWidget(),
+          Text('Feature Capabilities:'),
+          CapabilitiesWidget(),
+          Text('Feature Increment:'),
           OnCounterChangeWidget(
             builder: (_, count) => Center(child: Text('$count')),
           ),
