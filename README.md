@@ -27,3 +27,8 @@ Why?
 ## Feature Libraries
 
 This is the home of all feature work. Feature libraries need to be independent from each other. That means the only dependency in their pubspec.yaml should be the framework library and nothing else.
+
+How many features one Feature Library should contain it's still something that needs definition, I would argue that it should only be business related features. Yet, more definition guidelines must be created. One or more teams can contribute to a feature library, yet, only one team can own a feature library. Ownership means responsibility, the owners must make sure guidelines are applied and all quality aspects are being taken into consideration.
+
+## Semantic Versioning
+This needs to be applied to all feature libraries and framework. 
