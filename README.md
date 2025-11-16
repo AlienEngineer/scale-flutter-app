@@ -1,4 +1,4 @@
-# scale-flutter-app
+# scale-flutter-app (WIP)
 
 This repo is one of four repositories for a proof-of-concept (POC). The POC aims to explore ways to develop Flutter apps at scale, where multiple teams contribute daily to add new features and maintain the codebase.
 
