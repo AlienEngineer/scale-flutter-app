@@ -31,6 +31,17 @@ Because, no feature library can directly depend on another feature library what 
 
 This way the `Garage` and `App` know about the `Vehicle` type, but `Vehicle Status` only know about `Brand`. Why would we do this? This way both libraries can be developed in isolation, and asyncronously. Even if Brand doesn't exist in the Vehicle type it's an impediment for the Vehicle Status development. Ultimatelly to have it integrated in the App, Garage will have to provide this information. Also, this creates an opportunity for the App team to ensure that there isn't shared information that shouldn't and only what is needed is provided. If something goes against this, then Feature Libraries will have to do corrections.
 
+At it's core, this data binder is just a mapper between types:
+
+```dart
+class VehicleToCapabilitiesBinder
+    extends DataBinder<Vehicle, List<Capability>> {
+  @override
+  List<Capability> map(Vehicle data) =>
+      data.capabilities.map((c) => Capability(name1: c.name)).toList();
+}
+```
+
 ### What shouldn't be done?
 The Feature Libraries must avoid decision making in the UI, this should be delegated to their respective BFFs. One way to achieve this is to send information that is known in the App to the BFF for decision making, then the App/Features just follows what the BFF guidance. 
 
