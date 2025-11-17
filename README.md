@@ -45,7 +45,15 @@ Instead of this:
   }
 ```
 We should be able to do something like this:
-WIP
+```dart
+  final request = ScaleHttpRequest();
+  request.addPlatform();
+
+  var dto = await request.get<Dto>();
+```
+
+This means, our requests would send the platform via Http Request to the Backend and make all the needed decisions. Them dto would receive data based on those decisions.
+
 
 ## Breaking Changes
 
