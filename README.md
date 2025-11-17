@@ -2,6 +2,10 @@
 
 This repo is one of four repositories for a proof-of-concept (POC). The POC aims to explore ways to develop Flutter apps at scale, where multiple teams contribute daily to add new features and maintain the codebase. 
 
+1. [Framework](https://github.com/AlienEngineer/scale_framework)
+2. [Garage](https://github.com/AlienEngineer/scale_feature_1)
+3. [VehicleStatus](https://github.com/AlienEngineer/scale_feature_2)
+
 ## Overall Architecture
 
 The app only knows about its direct dependencies: feature libraries and the framework. External libraries are always used by the framework and never directly by feature libraries.
