@@ -1,6 +1,6 @@
 # scale-flutter-app (WIP)
 
-This repo is one of four repositories for a proof-of-concept (POC). The POC aims to explore ways to develop Flutter apps at scale, where multiple teams contribute daily to add new features and maintain the codebase.
+This repo is one of four repositories for a proof-of-concept (POC). The POC aims to explore ways to develop Flutter apps at scale, where multiple teams contribute daily to add new features and maintain the codebase. 
 
 ## Overall Architecture
 
@@ -31,6 +31,11 @@ This is the home of all feature work. Feature libraries need to be independent f
 How many features one Feature Library should contain it's still something that needs definition, I would argue that it should only be business related features. Yet, more definition guidelines must be created. One or more teams can contribute to a feature library, yet, only one team can own a feature library. Ownership means responsibility, the owners must make sure guidelines are applied and all quality aspects are being taken into consideration.
 
 ## Semantic Versioning
+
 This needs to be applied to all feature libraries and framework. Semantic Versioning is specially important for Flutter as it is the basis for version updates in pubspec.yaml. References to libraries must be made using ^x.x.x to ensure updating libraries is smooth as possible.
 
 The only time x.x.x should be use is when a given version is broken and therefore we must use the previous one. This of course is a temporary measure.
+
+## Ownership & Collaboration
+
+Each Library, Framework and App must have a owner team. Other teams can collaborate under the guidance of the owner team. This is meant to ensure, that teams hold each other accountable. Not accepting breaking changes, nor accepting under quality code.
