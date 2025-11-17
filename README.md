@@ -8,12 +8,6 @@ The app only knows about its direct dependencies: feature libraries and the fram
 
 <img width="582" height="257" alt="image" src="https://github.com/user-attachments/assets/ba0ca9c6-0ffc-4143-ba19-247c8c606fe1" />
 
-## Breaking Changes
-
-The handling of breaking changes must always be planned in advance. Breaking changes should be scheduled to allow feature libraries time to adapt. Any unplanned breaking change must be reverted and reintroduced in a planned way.
-
-Unplanned breaking changes create a lot of alignment work between feature libraries and put pressure on teams to keep up with the latest version. This must never happen.
-
 ## Framework Library
 
 The framework library is meant to provide cross‑cutting functionality to be used by all feature libraries. Examples include state managers (Bloc, get_it, etc.), HTTP requests, inversion-of-control containers, and so on.
@@ -29,6 +23,34 @@ Why?
 This is the home of all feature work. Feature libraries need to be independent from each other. That means the only dependency in their pubspec.yaml should be the framework library and nothing else.
 
 How many features one Feature Library should contain it's still something that needs definition, I would argue that it should only be business related features. Yet, more definition guidelines must be created. One or more teams can contribute to a feature library, yet, only one team can own a feature library. Ownership means responsibility, the owners must make sure guidelines are applied and all quality aspects are being taken into consideration.
+
+Because, no feature library can directly depend on another feature library what can be done is a DataBinder between these features. The DataBinders are defined in the app:
+
+<img width="518" height="269" alt="image" src="https://github.com/user-attachments/assets/8b287e5b-3204-41e2-b3bd-ced23adfad87" />
+
+This way the `Garage` and `App` know about the `Vehicle` type, but `Vehicle Status` only know about `Brand`. Why would we do this? This way both libraries can be developed in isolation, and asyncronously. Even if Brand doesn't exist in the Vehicle type it's an impediment for the Vehicle Status development. Ultimatelly to have it integrated in the App, Garage will have to provide this information. Also, this creates an opportunity for the App team to ensure that there isn't shared information that shouldn't and only what is needed is provided. If something goes against this, then Feature Libraries will have to do corrections.
+
+### What shouldn't be done?
+The Feature Libraries must avoid decision making in the UI, this should be delegated to their respective BFFs. One way to achieve this is to send information that is known in the App to the BFF for decision making, then the App/Features just follows what the BFF guidance. 
+
+Instead of this:
+```dart
+  import 'dart:io' show Platform;
+
+  if (Platform.isAndroid) {
+    // Android-specific code
+  } else if (Platform.isIOS) {
+    // iOS-specific code
+  }
+```
+We should be able to do something like this:
+WIP
+
+## Breaking Changes
+
+The handling of breaking changes must always be planned in advance. Breaking changes should be scheduled to allow feature libraries time to adapt. Any unplanned breaking change must be reverted and reintroduced in a planned way.
+
+Unplanned breaking changes create a lot of alignment work between feature libraries and put pressure on teams to keep up with the latest version. This must never happen.
 
 ## Semantic Versioning
 
