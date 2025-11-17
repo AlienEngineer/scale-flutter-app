@@ -28,6 +28,7 @@ Because, no feature library can directly depend on another feature library what 
 
 <img width="518" height="269" alt="image" src="https://github.com/user-attachments/assets/8b287e5b-3204-41e2-b3bd-ced23adfad87" />
 
+
 This way the `Garage` and `App` know about the `Vehicle` type, but `Vehicle Status` only know about `Brand`. Why would we do this? This way both libraries can be developed in isolation, and asyncronously. Even if Brand doesn't exist in the Vehicle type it's an impediment for the Vehicle Status development. Ultimatelly to have it integrated in the App, Garage will have to provide this information. Also, this creates an opportunity for the App team to ensure that there isn't shared information that shouldn't and only what is needed is provided. If something goes against this, then Feature Libraries will have to do corrections.
 
 ### What shouldn't be done?
