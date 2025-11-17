@@ -18,7 +18,7 @@ Unplanned breaking changes create a lot of alignment work between feature librar
 
 The framework library is meant to provide cross‑cutting functionality to be used by all feature libraries. Examples include state managers (Bloc, get_it, etc.), HTTP requests, inversion-of-control containers, and so on.
 
-This doesn't mean the framework should reinvent the wheel or reimplement existing libraries. Instead, it must create an abstraction layer over these external dependencies (for example, by providing a unified interface for state management).
+This doesn't mean the framework should reinvent the wheel or reimplement existing libraries. Instead, it must create an abstraction layer over these external dependencies (for example, by providing a unified interface for state management). Yet, this is not meant to be a simple indirection to external libraries. Using just indirections would not prevent as effectively breaking changes or adaptations. The focus should be: what do feature libraries need to achieve and define how they can acomplish their goals.
 
 Why?
 1. Having an abstraction layer means that updating an external library only needs to be done once in the framework. Adapting to new versions has zero impact on feature libraries. This is especially important when bumping major versions.
