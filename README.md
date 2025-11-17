@@ -14,7 +14,7 @@ The app only knows about its direct dependencies: feature libraries and the fram
 
 ## Framework Library
 
-The framework library is meant to provide cross‑cutting functionality to be used by all feature libraries. Examples include state managers (Bloc, get_it, etc.), HTTP requests, inversion-of-control containers, and so on.
+The framework library is meant to provide cross‑cutting functionality to be used by all feature libraries. Examples include state managers (Bloc, get_it, etc.), HTTP requests, inversion-of-control containers, navigation, and so on.
 
 This doesn't mean the framework should reinvent the wheel or reimplement existing libraries. Instead, it must create an abstraction layer over these external dependencies (for example, by providing a unified interface for state management). Yet, this is not meant to be a simple indirection to external libraries. Using just indirections would not prevent as effectively breaking changes or adaptations. The focus should be: what do feature libraries need to achieve and define how they can acomplish their goals.
 
