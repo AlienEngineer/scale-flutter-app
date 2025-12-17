@@ -6,20 +6,24 @@ import 'package:scale_framework/scale_framework.dart';
 import 'app_cluster.dart';
 
 void main() {
-  var registry = FeatureModulesRegistry(featureClusters: [AppCluster()]);
-  runApp(MyApp(registry));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final FeatureModulesRegistry registry;
-  const MyApp(this.registry, {super.key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: ModuleSetup(
-        registry: registry,
+        featureClusters: [
+          AppCluster(),
+        ],
+        featureModules: [
+          IncrementModule(),
+          GarageModule(),
+        ],
         child: MyHomePage(),
       ),
     );
