@@ -8,21 +8,9 @@ class AppCluster implements FeatureCluster {
   void setup(ModuleRegistry registry) {
     registry.addModule((_) => AppModule());
     registry.addModule((_) => IncrementModule());
-    registry.addModule(
-      (service) => GarageModule(
-        vehicleSelectedNotifier: service.get<DataProducer<Vehicle>>(),
-      ),
-    );
-    registry.addModule(
-      (service) => CapabilitiesModule(
-        service.get<DataConsumer<List<Capability>>>(),
-      ),
-    );
-    registry.addModule(
-      (service) => VehicleBrandModule(
-        onBrandChange: service.get<DataConsumer<Brand>>(),
-      ),
-    );
+    registry.addModule((service) => GarageModule());
+    registry.addModule((service) => CapabilitiesModule());
+    registry.addModule((service) => VehicleBrandModule());
   }
 }
 
@@ -30,10 +18,7 @@ class AppModule implements FeatureModule {
   @override
   void setup(PublicRegistry registry) {
     registry.addDataBinder<Vehicle, List<Capability>>(
-      () => VehicleToCapabilitiesBinder(),
-    );
-    registry.addDataBinder<Vehicle, Brand>(
-      () => VehicleToBrandBinder(),
-    );
+        () => VehicleToCapabilitiesBinder());
+    registry.addDataBinder<Vehicle, Brand>(() => VehicleToBrandBinder());
   }
 }
