@@ -82,6 +82,9 @@ This needs to be applied to all feature libraries and framework. Semantic Versio
 
 The only time x.x.x should be use is when a given version is broken and therefore we must use the previous one. This of course is a temporary measure.
 
+
+[Semantic Versioning](https://semver.org/)
+
 ## Ownership & Collaboration
 
 Each Library, Framework and App must have a owner team. Other teams can collaborate under the guidance of the owner team. This is meant to ensure, that teams hold each other accountable. Not accepting breaking changes, nor accepting under quality code.
