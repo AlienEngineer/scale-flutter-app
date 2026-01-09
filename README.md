@@ -47,7 +47,7 @@ class VehicleToCapabilitiesBinder
 ```
 
 ### What shouldn't be done?
-The Feature Libraries must avoid decision making in the UI, this should be delegated to their respective BFFs. One way to achieve this is to send information that is known in the App to the BFF for decision making, then the App/Features just follows what the BFF guidance. 
+The Feature Libraries must avoid decision making on the front-end, this should be delegated to their respective BFFs. One way to achieve this is to send information that is known in the App to the BFF for decision making, then the App/Features just follows what the BFF guidance. 
 
 Instead of this:
 ```dart
